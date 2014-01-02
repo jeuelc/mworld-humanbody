@@ -1,0 +1,129 @@
+<!-- i-C-a -->
+<div id="openeyes" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Can't keep your eyes open?</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="css/images/5-8/volcanoes/placeholder-background.jpg" alt="" />
+                        </div>
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentsleeps">
+                    <p>Ever noticed that the longer you stay awake, the sleepier and sleepier you get until you can't keep your eyes open any more?</p>
+					<p>That's your homeostatic drive pushing you towards sleep.  It is kind of like a pressure building inside of you.  The pressure to sleep starts to build from the minute you wake up.  It builds more and more the longer you are awake, until the body can't take it any more and you go to sleep.  Even if you try and force yourself to try and stay awake, eventually the pressure becomes too much and you have to fall asleep.</p>
+					<p>Once asleep, the pressure releases and you can start all over again!  The homeostatic drive works closely with your body clock; it is timed so that the point of highest pressure is also the point where your body clock tells you to sleep.</p>
+				</div>
+                <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopopeneyes"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="openeyesaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="openeyesaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="openeyesaudiofbtn" ></div></div>
+    <div id="actualaudio-openeyes" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 1);
+           
+           
+             if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-openeyes').html('<audio controls preload id="openeyesaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/openeyes.mp3" type="audio/mpeg"></audio>');
+             } 
+             
+    
+            $("#openeyes").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleeps-and-dreams-why-do-we-sleep.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+		}
+		   
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+       
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
+//    });
+//    
+    //$("#pol1").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-openeyes-body-clocks.html", {transition: "slide"});
+    //});
+	
+	//$("#pol2").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-openeyes-social-jetlag.html", {transition: "slide"});
+    //});
+      
+
+/* ******************** */
+	$("#playstopopeneyes").on('tap', function() {
+      if(!playing) {
+        openeyesaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        openeyesaudio.pause(); openeyesaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+
+    $("#openeyesaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        openeyesaudio.pause();
+        paused = true;
+      } else {
+        openeyesaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#openeyesaudiofbtn").on('tap', function() {
+	  var ctime = openeyesaudio.currentTime;
+      openeyesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#openeyesaudiobbtn").on('tap', function() {
+	  var ctime = openeyesaudio.currentTime;
+      openeyesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#openeyesaudiopsbtn").on('tap', function() {
+	  openeyesaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/onecardLogic.js"></script>
+</div>

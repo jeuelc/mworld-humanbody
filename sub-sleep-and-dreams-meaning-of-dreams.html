@@ -1,0 +1,174 @@
+<!-- i-C-a -->
+<div id="meaningofdreams" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>What do dreams mean?</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+
+					<!-- This section is for flipping images quize -->
+					<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+					  <div id="f1_card">
+						<div class="front face">
+						  <img id="dopple" src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/What_Do_Dreams_Mean/Your_Dreams.png">
+						</div>
+						<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/What_Do_Dreams_Mean/Your_Dreams_Reverse.png) no-repeat;">
+						  <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+							<div id="falseans" style="position: absolute;left: 87px;top: 175px;width: 70px;height: 56px;"></div>		
+							<div id="trueans" style="position: absolute;left: 200px;top: 175px;width: 77px;height: 56px;"></div>		
+						</div>
+					  </div><!--/f1+card-->
+					</div><!--/f1_container-->
+					<!-- Flip content ends here -->
+				 				  
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/What_Do_Dreams_Mean/What_Do_Dreams_Mean.png" alt="" />
+                        </div>
+						<div id="pol2" class="pPiece" style="left:70px;top:230px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/What_Do_Dreams_Mean/Your_Dreams.png" alt="" />
+                        </div>
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentsleeps">
+                    <p>The possibility that dreams are telling us something has fascinated people for centuries.</p>
+					<p>The ancient Greeks and Romans thought dreams could tell the future.  In modern times, the field of psychology became popular after a doctor named Sigmund Freud came up with lots of ideas about what dreams might mean.</p>
+					<p>So do our dreams really mean something?  No-one really knows!  There are thousands of books and websites that will interpret your dreams, but science has never been able to provide solid evidence that dreams have meaning, beyond being symbols for emotions and thoughts youve had during the day.</p>
+					<p>Perhaps one day we will know the answer and when we dream about a rabbit we will know it means good luck is coming our way! Check out the cards for some potential meanings of dreams. Remember, this is not proven science, but it can be fun to think of what dreams might mean!</p>
+				</div>
+               <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopmeaningofdreams"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="meaningofdreamsaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="meaningofdreamsaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="meaningofdreamsaudiofbtn" ></div></div>
+    <div id="actualaudio-meaningofdreams" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+           
+           
+             if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-meaningofdreams').html('<audio controls preload id="meaningofdreamsaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/meaningofdreams.mp3" type="audio/mpeg"></audio>');
+             } 
+             
+    
+            $("#meaningofdreams").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleeps-and-dreams-In-your-dreams.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+		}
+		   
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+   $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    $('#falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+	  });
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });	
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
+//    });
+//    
+    //$("#pol1").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-meaningofdreams-body-clocks.html", {transition: "slide"});
+    //});
+	
+	//$("#pol2").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-meaningofdreams-social-jetlag.html", {transition: "slide"});
+    //});
+      
+
+/* ******************** */
+
+	$("#playstopmeaningofdreams").on('tap', function() {
+      if(!playing) {
+        meaningofdreamsaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        meaningofdreamsaudio.pause(); meaningofdreamsaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+
+    $("#meaningofdreamsaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        meaningofdreamsaudio.pause();
+        paused = true;
+      } else {
+        meaningofdreamsaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#meaningofdreamsaudiofbtn").on('tap', function() {
+	  var ctime = meaningofdreamsaudio.currentTime;
+      meaningofdreamsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#meaningofdreamsaudiobbtn").on('tap', function() {
+	  var ctime = meaningofdreamsaudio.currentTime;
+      meaningofdreamsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#meaningofdreamsaudiopsbtn").on('tap', function() {
+	  meaningofdreamsaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/twocardLogic.js"></script>
+</div>

@@ -1,0 +1,104 @@
+<!-- i-C-a -->
+<div id="inyourdreams" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="sgl" style="height: 70px;left: 195px;position: absolute; top: 148px; width: 197px;background:transparent;position:absolute;"></div>
+        <div id="nsl" style=" background: none repeat scroll 0 0 transparent; height: 75px;position: absolute; right: 393px; top: 60px; width: 226px;"></div>
+	    <div id="gsl" style=" background: none repeat scroll 0 0 transparent; height: 69px; position: absolute; right: 182px; top: 154px; width: 239px;"></div>
+	    
+      </div>
+      <div class="in_your_dreams">
+			<p>Everybody talks about their dreams.  Dreams have interested philosophers and psychologists for centuries, yet despite years of research, why we dream and what dreams really mean remains a mystery!</p>
+			<p>What we do know is that dreaming mostly happens in REM sleep  when our eyes are moving really fast behind our eyelids.  During this sleep stage our brain waves look almost exactly the same as when we are awake.</p>
+	  </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+  <div class="micbtnholder"><div class="micbtnsleeps" id="playstopinyourdreams"></div></div>
+  <div class="bsleeps"><div class="rwsleeps" id="inyourdreamsaudiobbtn"></div></div>
+  <div class="plsleeps"><div class="plpssleeps" id="inyourdreamsaudioplbtn"></div></div>
+  <div class="fsleeps"><div class="fwsleeps" id="inyourdreamsaudiofbtn" ></div></div>
+  <div id="actualaudio-inyourdreams" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+        (function() {
+          playing = false;
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-inyourdreams').html('<audio controls preload id="inyourdreamsaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/inyourdreamslife.mp3" type="audio/mpeg"></audio>');
+      } 
+      
+      $("#inyourdreams").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $("#sgl").on('tap', function() { $.mobile.changePage("sub-sleeps-and-dreams-why-do-we-dream.html", {transition:"slide"}); });
+    $("#nsl").on('tap', function() { $.mobile.changePage("sub-sleep-and-dreams-remembering-dreams.html", {transition:"slide"}); });
+    $("#gsl").on('tap', function() { $.mobile.changePage("sub-sleep-and-dreams-meaning-of-dreams.html", {transition:"slide"}); });
+    
+	$('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    function goBack() {
+      $.mobile.changePage("sub-sleep-and-dreams.html");
+    }
+    
+    function playsleeps() {
+		 bgsoundsleeps.play();
+	}
+       
+	function pausesleeps() {
+		 bgsoundsleeps.pause();
+	}
+    /* ******************** */
+	
+	$("#playstopinyourdreams").on('tap', function() {
+      if(!playing) {
+        inyourdreamsaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        inyourdreamsaudio.pause(); inyourdreamsaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+    $("#inyourdreamsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        inyourdreamsaudio.pause();
+        paused = true;
+      } else {
+        inyourdreamsaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#inyourdreamsaudiofbtn").on('tap', function() {
+      var ctime = inyourdreamsaudio.currentTime;
+      inyourdreamsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#inyourdreamsaudiobbtn").on('tap', function() {
+      var ctime = inyourdreamsaudio.currentTime;
+      inyourdreamsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#inyourdreamsaudiopsbtn").on('tap', function() {
+      inyourdreamsaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

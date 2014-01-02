@@ -1,0 +1,175 @@
+<!-- i-C-a -->
+<div id="sleepcultures" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Sleep across cultures</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+				  
+					<a id="gamaraysxrays" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Sleep_Across_Cultures/Sleep_Across_Cultures_Hi_Res.jpg', 'The time and place people prefer to sleep differs all around the world!');">click here</a>			  
+				  
+					<!-- This section is for flipping images quize -->
+					<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+					  <div id="f1_card">
+						<div class="front face">
+						  <img id="dopple" src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Sleep_Across_Cultures/Sleep_Prefereces.png">
+						</div>
+						<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Sleep_Across_Cultures/Sleep_Prefereces_Reverse.png) no-repeat;">
+						  <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+							<div id="trueans" style="position:absolute;left:90px;top:180px;width:70px;height:50px;"></div>
+							  <div id="falseans" style="position:absolute;left:200px;top:180px;width:70px;height:50px;"></div>							  
+						</div>
+					  </div><!--/f1+card-->
+					</div><!--/f1_container-->
+					<!-- Flip content ends here -->
+					
+                     <div id="zoomwrapper">
+                        <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+							<img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Sleep_Across_Cultures/Sleep_Prefereces.png" alt="" />
+						</div>
+						<div id="polb2" class="pPiece" style="left:100px;top:270px;">
+							<img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Sleep_Across_Cultures/Sleep_Across_Cultures.png" alt="" />
+						</div>					
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentsleeps">
+                    <p>There are many cultural differences in the way people sleep.  In many countries, the most common sleeping pattern is to have one long sleep during the night and be awake all day.  However, this is not the case in every country.</p>
+					<p>In some parts of South America and Southern Europe, people often sleep or rest for two or more hours during the day and stay up late into the night.  This daytime rest is known as a siesta.</p>
+					<p>In many Asian countries, people have a short sleep at night time, but then take a few very short naps during the day.  In Japan, these short naps are called inemuri.  Children are allowed to have a nap during class and the teachers let them sleep.</p>
+				</div>
+                <!-- <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+                  <div id="node-pop">
+                     <p>What is an orbit?</p>
+                     <p>Does gravity always pull objects together? It does, but this doesn't always result in objects colliding with each other. If objects are set in motion, then they can orbit one another.  That means they circle around each other.</p>
+                     <p>A satellite travels so fast horizontally that instead of crashing to Earth, the satellite ends up circling the Earth instead.  The Planets in our Solar System have orbited the Sun for billions of years!</p>
+                  </div> 
+                </div>-->
+				<div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopsleepcultures"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="sleepculturesaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="sleepculturesaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="sleepculturesaudiofbtn" ></div></div>
+    <div id="actualaudio-sleepcultures" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#polb1').css("z-index", 2);
+            $('div#polb2').css("z-index", 1);
+            $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");         
+           
+		    if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-sleepcultures').html('<audio controls preload id="sleepculturesaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/sleepcultures.mp3" type="audio/mpeg"></audio>');
+            } 
+		  
+    
+            $("#sleepcultures").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleep-and-dreams-sleep-time.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+		}
+		   
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+	   
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#polb1").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    $('#falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+	  });
+    $("#polb1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });	
+
+    $("#polb2").on('tap', function() {
+      $('#gamaraysxrays')[0].click();
+    });
+	
+  
+
+/* ******************** */
+      $("#playstopsleepcultures").on('tap', function() {
+      if(!playing) {
+        sleepculturesaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        sleepculturesaudio.pause(); sleepculturesaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+
+    $("#sleepculturesaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        sleepculturesaudio.pause();
+        paused = true;
+      } else {
+        sleepculturesaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#sleepculturesaudiofbtn").on('tap', function() {
+	  var ctime = sleepculturesaudio.currentTime;
+      sleepculturesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#sleepculturesaudiobbtn").on('tap', function() {
+	  var ctime = sleepculturesaudio.currentTime;
+      sleepculturesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#sleepculturesaudiopsbtn").on('tap', function() {
+	  sleepculturesaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/twocardLogicb.js"></script>
+</div>

@@ -1,0 +1,152 @@
+<!-- i-C-a -->
+<div data-role="page" id="brokensleep">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Broken sleep</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navsleepanddreams-content">
+        <p>Unfortunately, although sleep is natural process controlled by our bodies, and is essential to our survival, there are a lot of people who have trouble sleeping or have a sleep disorder.</p>
+        <p>There are two main types of sleep disorders: <a href="#parasomnia" data-rel="popup">parasomnias</a> and <a href="#dyssomnias" data-rel="popup">dyssomnias</a>.  A lot of sleep disorders are not harmful to us, but some can affect how we behave during the day, how well we learn and even our health.</p>
+        <p>But you dont need to have a sleep disorder to disturb your sleep. Simply playing on your smartphone or going to bed at different times each night can push your body clock out of sync and make you feel tired, moody and hungry!</p>					
+      </div>
+        
+      <div class="navsleepanddreamsbtn1">
+		<p><a href="sub-sleep-and-dreams-broken-messing.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/messing_with_your_body_clock.png"></a></p>
+      </div>
+      <div class="navsleepanddreamsbtn2">
+        <p><a href="sub-sleep-and-dreams-broken-not-sleeping.html" data-transition="slide" ><img src=
+		"css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/not_sleeping_like_a_baby.png"></a></p>
+      </div>
+      <div class="navsleepanddreamsbtn3">
+        <p><a href="sub-sleep-and-dreams-broken-parasomnias-dyssomnias.html" data-transition="slide" ><img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/parasomnias_versus_dyssomnias.png"></a></p>
+      </div>
+	  
+	    <div data-role="popup" id="parasomnia" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>Parasomnias</p>
+			<p>A parasomnia is any sleep problem connected to waking or partial waking and/or moving from one sleep state to another. Like sleepwalking!</p>
+			<div>  <div class="defspeaker"  id="parasomnia"> </div></div>
+			<audio id="parasomniaaudio" controls preload onpause="playaudio()" onplay="pausebg()" style="visibility:hidden;"><source src="audio/Sleeps_And_Dreams/Parasomnia_Narration.mp3" type="audio/mpeg"></audio>
+			</div>
+		</div>
+		
+		<div data-role="popup" id="dyssomnias" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>dyssomnias</p>
+			<p>A dyssomnia is any sleep problem that causes difficulty going to sleep, staying asleep or too much daytime sleepiness.</p>
+			<div>  <div class="defspeaker"  id="dyssomnias"> </div></div>
+			<audio id="dyssomniasaudio" controls preload onpause="playaudio()" onplay="pausebg()" style="visibility:hidden;"><source src="audio/Sleeps_And_Dreams/Dyssomnia_Narration.mp3" type="audio/mpeg"></audio>
+			</div>
+		</div>
+	  
+ <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopbrokensleep"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="brokensleepaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="brokensleepaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="brokensleepaudiofbtn"></div></div>
+    <div id="actualaudio-brokensleep" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-brokensleep').html('<audio id="brokensleepaudio" controls preload onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/brokensleep.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#brokensleep").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-sleep-and-dreams.html", {transition: "slide", reverse: true });
+	  /*
+      bgsoundsleeps.pause();
+      bgsoundsleeps.currentTime = 0;
+      spacesoundbg.play();
+	  */
+    }
+    
+    function playsleeps() {
+         bgsoundsleeps.play();
+    }
+       
+    function pausesleeps() {
+         bgsoundsleeps.pause();
+    }
+    /* ******************** */
+    $("#playstopbrokensleep").on('tap', function() {
+      if(!playing) {
+        brokensleepaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        brokensleepaudio.pause(); brokensleepaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#brokensleepaudioplbtn").on('tap', function() {
+      if(!paused) {
+        brokensleepaudio.pause();
+        paused = true;
+      } else {
+        brokensleepaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#brokensleepaudiofbtn").on('tap', function() {
+      var ctime = brokensleepaudio.currentTime;
+      brokensleepaudio.currentTime = ctime + 10;
+    });
+    
+    $("#brokensleepaudiobbtn").on('tap', function() {
+      var ctime = brokensleepaudio.currentTime;
+      brokensleepaudio.currentTime = ctime - 10;
+    });
+    
+    $("#brokensleepaudiopsbtn").on('tap', function() {
+      brokensleepaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbrokensleepbigbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+	
+	//Definations
+       $( "#parasomnia" ).bind({
+          popupafterclose: function(event, ui) { 
+                  parasomniaaudio.pause(); 
+           }
+        });
+	//Definations ends here
+	//Definations
+       $( "#dyssomnias" ).bind({
+          popupafterclose: function(event, ui) { 
+                  dyssomniasaudio.pause(); 
+           }
+        });
+	//Definations ends here
+  </script>
+</div> <!--//home--> 

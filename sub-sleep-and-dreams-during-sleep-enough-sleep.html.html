@@ -1,0 +1,140 @@
+<!-- i-C-a -->
+<div id="enoughtsleep" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>When you don't get enough sleep...</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="css/images/5-8/volcanoes/placeholder-background.jpg" alt="" />
+                        </div>
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentvolcano">
+                    <p></p>
+				</div>
+                <!-- <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+                  <div id="node-pop">
+                     <p>What is an orbit?</p>
+                     <p>Does gravity always pull objects together? It does, but this doesn't always result in objects colliding with each other. If objects are set in motion, then they can orbit one another.  That means they circle around each other.</p>
+                     <p>A satellite travels so fast horizontally that instead of crashing to Earth, the satellite ends up circling the Earth instead.  The Planets in our Solar System have orbited the Sun for billions of years!</p>
+                  </div> 
+                </div>-->
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopenoughtsleep"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="enoughtsleepaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="enoughtsleepaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="enoughtsleepaudiofbtn" ></div></div>
+    <div id="actualaudio-enoughtsleep" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 2);
+            $('div#pol2').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            $('div#pol3 > img').css("-webkit-transform", "rotate(-5deg)");
+           
+           
+             if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-enoughtsleep').html('<audio controls preload id="enoughtsleepaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="http://deftsoft.info/appvendo/mw/audio/enoughtsleep.mp3" type="audio/mpeg"></audio>');
+             } 
+             
+    
+            $("#enoughtbh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleeps-and-dreams-during-sleep.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+		}
+		   
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+       
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
+//    });
+//    
+    //$("#pol1").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-enoughtsleep-body-clocks.html", {transition: "slide"});
+    //});
+	
+	//$("#pol2").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-enoughtsleep-social-jetlag.html", {transition: "slide"});
+    //});
+      
+
+/* ******************** */
+
+	
+	$("#playstopenoughtsleep").on('tap', function() {
+      if(!playing) {
+        enoughtsleepaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        enoughtsleepaudio.pause(); enoughtsleepaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+	
+    $("#enoughtsleepaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        enoughtsleepaudio.pause();
+        paused = true;
+      } else {
+        enoughtsleepaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#enoughtsleepaudiofbtn").on('tap', function() {
+	  var ctime = enoughtsleepaudio.currentTime;
+      enoughtsleepaudio.currentTime = ctime + 10;
+    });
+    
+    $("#enoughtsleepaudiobbtn").on('tap', function() {
+	  var ctime = enoughtsleepaudio.currentTime;
+      enoughtsleepaudio.currentTime = ctime - 10;
+    });
+    
+    $("#enoughtsleepaudiopsbtn").on('tap', function() {
+	  enoughtsleepaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/threecardLogic.js"></script>
+</div>

@@ -1,0 +1,113 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-build-your-own-skelton-keep-your-skelton-healthy-broken-bones">
+  <script src="js/slidebar_build_your_own_skelton.js"></script>
+  <link rel="stylesheet" href="css/style_build_your_own_skelton.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnskelton"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnskelton"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnskelton"></div></div>
+  <div class="infobtnholder"><div class="infobtnskelton"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnskelton"></div></div>
+  <div class="menubtnholder"><div class="menubtnskelton"></div></div>
+  
+  <div class="bptitleholder"><h1>Broken bones</h1></div>
+  <!--<div id="forceslink" style="position:absolute;left:225px;top:105px;width:250px;height:60px;"></div>
+  <div id="aerodynamicslink" style="position:absolute;left:225px;top:255px;width:250px;height:60px;"></div>
+  <div id="rollinglink" style="position:absolute;left:225px;top:400px;width:250px;height:60px;"></div>-->
+  <div data-role="content" class="kidzcontent">
+	<div class="broken-bone-text">
+		<p>
+			Your bones are strong, but even strong things can break!  Have you ever broken a bone?  The intense pain you get isn't actually from the bone itself breaking; it's from the damaged caused to the periosteum that covers your bones.  This is where all the nerves are!</p>
+			<p>There are different types of bone breaks, but the most common are a thin hairline fracture and a complete break where the bone snaps in two!  A complete break takes longer to heal than a hairline fracture because more of the bone needs to be replaced.</p>
+
+			<p>When you fracture a bone, new bone is created around the break, and is slowly remodelled to form the shape of your original bone. </p>
+
+			<p>Doctors can see fractures and breaks using x-rays.  They appear as a black clear line or break in the white bone. Can you identify the bones that are fractured in this picture?</p>
+
+    </div>   
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnskelton" id="playstopbrokenbones"></div></div>
+    <div class="bskelton"><div class="rwskelton" id="brokenbonesaudiobbtn"></div></div>
+    <div class="plskelton"><div class="plpsskelton" id="brokenbonesaudioplbtn"></div></div>
+    <div class="fskelton"><div class="fwskelton" id="brokenbonesaudiofbtn"></div></div>
+    <div id="actualaudio-brokenbones" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-brokenbones').html('<audio id="brokenbonesaudio" controls preload onpause="playsskelton()" onplay="pauseskelton()"><source src="audio/Build_Your_Own_Skelton/Broken_Bone.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-build-your-own-skelton-keep-your-skelton-healthy-broken-bones").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+
+    
+    $('.homelinkbh').on('tap', function() { bgsoundskelton.pause(); bgsoundskelton.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-build-your-own-skelton.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsskelton() {
+         bgsoundskelton.play();
+    }
+       
+    function pauseskelton() {
+         bgsoundskelton.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopbrokenbones").on('tap', function() {
+      if(!playing) {
+        brokenbonesaudio.play();
+        $('.micbtnskelton').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        brokenbonesaudio.pause(); brokenbonesaudio.currentTime = 0;
+        $('.micbtnskelton').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#brokenbonesaudioplbtn").on('tap', function() {
+      if(!paused) {
+        brokenbonesaudio.pause();
+        paused = true;
+      } else {
+        brokenbonesaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#brokenbonesaudiofbtn").on('tap', function() {
+      var ctime = brokenbonesaudio.currentTime;
+      brokenbonesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#brokenbonesaudiobbtn").on('tap', function() {
+      var ctime = brokenbonesaudio.currentTime;
+      brokenbonesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#brokenbonesaudiopsbtn").on('tap', function() {
+      brokenbonesaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

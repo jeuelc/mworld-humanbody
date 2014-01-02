@@ -1,0 +1,131 @@
+<!-- i-C-a -->
+<div id="bodyclock" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      <!--<div id="sgl" style="width:141px;height:112px;left:210px;top:362px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="snl" style="width:141px;height:112px;left:128px;top:485px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="nsl" style="width:176px;height:106px;left:388px;top:283px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="sleepsl" style="width:165px;height:117px;left:498px;top:467px;background:transparent;position:absolute;z-index:99999;"></div>
+		<div id="dsl" style="width:176px;height:106px;left:735px;top:217px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="ehl" style="width:165px;height:110px;left:844px;top:415px;background:transparent;position:absolute;z-index:99999;"></div>
+      </div>-->
+      <div class="bptitleholder"><h1>Tick, tock, body clock</h1></div>
+      <div class="storypageetg_bodyclock">
+		<p>Inside your body is a clock that tells you when it's time to eat (you get hungry), time to play (you get lots of energy), and time to sleep (you get tired).  Your body clock is also known as your circadian rhythm, and comes from a tiny spot in your brain called the <a href="#Suprachiasmatic" data-rel="popup">Suprachiasmatic</a> Nucleus.Over 24 hours of the day, your body clock is like a roller coaster - it goes up and it goes down. From about 6am to 2pm, your body clock ensures you have what you need for peak performance and energy.  It then tells your body to take a rest, so it slows everything down until about 4pm.  After that, your body clock gets you moving again until between 8 and 10pm. From then until 6am, your body clock tells you to sleep.</p>
+					<p>Of course, your body clock can't tell the actual time so it uses day and night, or light and dark, which it senses through your eyes, to set your body clock.</p>
+	  </div>
+	  <div data-role="popup" id="Suprachiasmatic" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>Suprachiasmatic</p>
+			<p>The Suprachiasmatic Nucleus is a tiny region of the brain about the size of a grain of rice. It is deep inside the brain, about level with the top of your ear.</p>
+			<div>  <div class="defspeaker"  id="Suprachiasmatic"> </div></div>
+			<audio id="Suprachiasmaticaudio" controls preload onpause="playaudio()" onplay="pausebg()" style="visibility:hidden;"><source src="audio/Money/Suprachiasmatic.mp3" type="audio/mpeg"></audio>
+			</div>
+		</div>
+	  
+	  
+	  
+      <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopbodyclock"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="bodyclockaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="bodyclockaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="bodyclockaudiofbtn" ></div></div>
+    <div id="actualaudio-bodyclock" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+        (function() {
+          playing = false;
+           /* $('#node-body-minoans').html(data[0].Body);*/
+          if(sound.canPlayType('audio/mpeg')) {
+			 $('#actualaudio-bodyclock').html('<audio controls preload id="bodyclockaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/bodyclock.mp3" type="audio/mpeg"></audio>');
+		  }
+      
+      $("#bodyclock").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+  //  $("#sgl").on('tap', function() {$.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-cooking.html", {transition:"slide"}); });
+  // $("#snl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-marketers.html", {transition:"slide"}); });
+  //  $("#nsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-village.html", {transition:"slide"}); });
+  //  $("#sleepsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-fashion.html", {transition:"slide"}); });
+	// $("#dsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-houses.html", {transition:"slide"}); });
+	//  $("#ehl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-animals.html", {transition:"slide"}); });
+    
+    $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+	function goBack() {
+		$.mobile.changePage("sub-sleeps-and-dreams-why-do-we-sleep.html");
+	}
+    
+    function playsleeps() {
+		 bgsoundsleeps.play();
+	}
+       
+	function pausesleeps() {
+		 bgsoundsleeps.pause();
+	}
+    /* ******************** */
+	
+	$("#playstopbodyclock").on('tap', function() {
+      if(!playing) {
+        bodyclockaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        bodyclockaudio.pause(); bodyclockaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+    $("#bodyclockaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        bodyclockaudio.pause();
+        paused = true;
+      } else {
+        bodyclockaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#bodyclockaudiofbtn").on('tap', function() {
+	  var ctime = bodyclockaudio.currentTime;
+      bodyclockaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bodyclockaudiobbtn").on('tap', function() {
+	  var ctime = bodyclockaudio.currentTime;
+      bodyclockaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bodyclockaudiopsbtn").on('tap', function() {
+	  bodyclockaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+       
+//Definations
+       $( "#Suprachiasmatic" ).bind({
+          popupafterclose: function(event, ui) { 
+                  Suprachiasmaticaudio.pause(); 
+           }
+        });
+	//Definations ends here	   
+  </script>
+</div>

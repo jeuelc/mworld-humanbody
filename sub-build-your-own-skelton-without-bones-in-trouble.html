@@ -1,0 +1,137 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-build-your-own-skelton-without-bones-in-trouble">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_build_your_own_skelton.js"></script>
+  <link rel="stylesheet" href="css/style_build_your_own_skelton.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnskelton"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnskelton"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnskelton"></div></div>
+  <div class="infobtnholder"><div class="infobtnskelton"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnskelton"></div></div>
+  <div class="menubtnholder"><div class="menubtnskelton"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Without bones, we're in trouble</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navskelton-content">
+        <p>What do you think your body would be like if you didn't have any bones?  You would be a lump of organs and skin.  You would have no support to stand up, walk or lift a drink to your mouth.</p>
+		<p>Bones are very important to protect your vital organs like your lungs, heart and brain!  Your bones also work with your muscles to help you move around.</p>
+		<p>Your bones also make blood. The innermost part of many of your bones is called the bone marrow cavity and this is where blood cells are made.</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-build-your-own-skelton-without-bones-in-trouble-thanks-for-your-support.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-build-your-own-skelton-without-bones-in-trouble-your-boney-shield.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Your_Boney_Shield.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-build-your-own-skelton-without-bones-in-trouble-your-body-is-full-of-levers.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Your_Body_Is_Full_Of_Levers.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-build-your-own-skelton-without-bones-in-trouble-making-blood.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Making_Blood.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnskelton" id="playstopwithoutbonestrouble"></div></div>
+    <div class="bskelton"><div class="rwskelton" id="withoutbonestroubleaudiobbtn"></div></div>
+    <div class="plskelton"><div class="plpsskelton" id="withoutbonestroubleaudioplbtn"></div></div>
+    <div class="fskelton"><div class="fwskelton" id="withoutbonestroubleaudiofbtn"></div></div>
+    <div id="actualaudio-withoutbonestrouble" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-withoutbonestrouble').html('<audio id="withoutbonestroubleaudio" controls preload onpause="playsskelton()" onplay="pauseskelton()"><source src="audio/Build_Your_Own_Skelton/Without_Bones_Trouble.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-build-your-own-skelton-without-bones-in-trouble").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundskelton.pause(); bgsoundskelton.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-build-your-own-skelton.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsskelton() {
+         bgsoundskelton.play();
+    }
+       
+    function pauseskelton() {
+         bgsoundskelton.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopwithoutbonestrouble").on('tap', function() {
+      if(!playing) {
+        withoutbonestroubleaudio.play();
+        $('.micbtnskelton').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        withoutbonestroubleaudio.pause(); withoutbonestroubleaudio.currentTime = 0;
+        $('.micbtnskelton').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#withoutbonestroubleaudioplbtn").on('tap', function() {
+      if(!paused) {
+        withoutbonestroubleaudio.pause();
+        paused = true;
+      } else {
+        withoutbonestroubleaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#withoutbonestroubleaudiofbtn").on('tap', function() {
+      var ctime = withoutbonestroubleaudio.currentTime;
+      withoutbonestroubleaudio.currentTime = ctime + 10;
+    });
+    
+    $("#withoutbonestroubleaudiobbtn").on('tap', function() {
+      var ctime = withoutbonestroubleaudio.currentTime;
+      withoutbonestroubleaudio.currentTime = ctime - 10;
+    });
+    
+    $("#withoutbonestroubleaudiopsbtn").on('tap', function() {
+      withoutbonestroubleaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

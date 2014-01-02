@@ -1,0 +1,115 @@
+<!-- i-C-a -->
+<div id="bodyclocks" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      <!--<div id="sgl" style="width:141px;height:112px;left:210px;top:362px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="snl" style="width:141px;height:112px;left:128px;top:485px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="nsl" style="width:176px;height:106px;left:388px;top:283px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="sleepsl" style="width:165px;height:117px;left:498px;top:467px;background:transparent;position:absolute;z-index:99999;"></div>
+		<div id="dsl" style="width:176px;height:106px;left:735px;top:217px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="ehl" style="width:165px;height:110px;left:844px;top:415px;background:transparent;position:absolute;z-index:99999;"></div>
+      </div>-->
+      <div class="bptitleholder"><h1>Body clock's out of sync</h1></div>
+      <div class="bpcontent_messing_body_clock">
+		<p>Your body clock can either be advanced, which means people want to sleep earlier than is expected, or it can be delayed, which is when sleep happens much later than expected.  Phase delay is more common than phase advance because of all the artificial light in our everyday lives.</p>
+					<p>It is not a problem if you can still get enough sleep, but how many of us can sleep late into the morning?  Getting up early means that we often wont get enough sleep and wont be able to function well during the day.</p>
+					<p>So how do you fix it?  Well, get lots of light in the morning, preferably sunlight.  Turn off all electronic devices at least 30 minutes before you want to go to sleep and keep your room dimly lit when you are getting ready for bed.  Then try going to bed 10 minutes earlier each night for a week.</p>
+	  </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopbodyclocks"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="bodyclocksaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="bodyclocksaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="bodyclocksaudiofbtn" ></div></div>
+    <div id="actualaudio-bodyclocks" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+        (function() {
+          playing = false;
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-bodyclocks').html('<audio controls preload id="bodyclocksaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/bodyclocks.mp3" type="audio/mpeg"></audio>');
+             } 
+      
+      $("#bodyclocks").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+  //  $("#sgl").on('tap', function() {$.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-cooking.html", {transition:"slide"}); });
+  // $("#snl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-marketers.html", {transition:"slide"}); });
+  //  $("#nsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-village.html", {transition:"slide"}); });
+  //  $("#sleepsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-fashion.html", {transition:"slide"}); });
+	// $("#dsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-houses.html", {transition:"slide"}); });
+	//  $("#ehl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-animals.html", {transition:"slide"}); });
+    
+    $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+	function goBack() {
+		$.mobile.changePage("sub-sleep-and-dreams-broken-messing.html");
+	}
+    
+    function playsleeps() {
+		 bgsoundsleeps.play();
+	}
+       
+	function pausesleeps() {
+		 bgsoundsleeps.pause();
+	}
+    /* ******************** */
+	
+	$("#playstopbodyclocks").on('tap', function() {
+      if(!playing) {
+        bodyclocksaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        bodyclocksaudio.pause(); bodyclocksaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+	
+    $("#bodyclocksaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        bodyclocksaudio.pause();
+        paused = true;
+      } else {
+        bodyclocksaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#bodyclocksaudiofbtn").on('tap', function() {
+	  var ctime = bodyclocksaudio.currentTime;
+      bodyclocksaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bodyclocksaudiobbtn").on('tap', function() {
+	  var ctime = bodyclocksaudio.currentTime;
+      bodyclocksaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bodyclocksaudiopsbtn").on('tap', function() {
+	  bodyclocksaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script>
+</div>

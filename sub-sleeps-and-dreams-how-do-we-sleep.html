@@ -1,0 +1,114 @@
+<!-- i-C-a -->
+<div data-role="page" id="howsleep">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>How do we sleep?</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="navsleepanddreams-content">
+        <p>Although everyone sleeps, the way people sleep can be very different.  </p>
+		<p>Some people like to go to bed early and get up early.  Some people like to sleep late.  Some people take naps.  Some people sleep on the floor and some people sleep with the whole family in one room.  </p>
+		<p>But it is not only the way people sleep that is different.  What our brains do during sleep changes all the time depending on how old we are. </p>
+	  </div>
+        
+      <div class="navsleepanddreamsbtn1">
+		<p><a href="sub-sleep-and-dreams-how-much-sleep-you-need.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/How_Much_Sleep_Do_You_Need.png"></a></p>
+      </div>
+      <div class="navsleepanddreamsbtn2">
+        <p><a href="sub-sleep-and-dreams-sleep-time.html" data-transition="slide" ><img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/sleeptime.png"></a></p>
+      </div>
+      <div class="navsleepanddreamsbtn3">
+        <p><a href="sub-sleep-and-dreams-sleep-structure.html" data-transition="slide" ><img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Structure_Of_Sleep.png"></a></p>
+      </div>
+ <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstophowsleep"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="howsleepaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="howsleepaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="howsleepaudiofbtn"></div></div>
+    <div id="actualaudio-howsleep" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-howsleep').html('<audio id="howsleepaudio" controls preload onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/howsleep.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#howsleep").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-sleep-and-dreams.html", {transition: "slide", reverse: true });
+      bgsoundsleeps.pause();
+      bgsoundsleeps.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function playsleeps() {
+		 bgsoundsleeps.play();
+	}
+       
+	function pausesleeps() {
+		 bgsoundsleeps.pause();
+	}
+    /* ******************** */
+    $("#playstophowsleep").on('tap', function() {
+      if(!playing) {
+        howsleepaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        howsleepaudio.pause(); howsleepaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#howsleepaudioplbtn").on('tap', function() {
+     if(!paused) {
+        howsleepaudio.pause();
+        paused = true;
+      } else {
+        howsleepaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#howsleepaudiofbtn").on('tap', function() {
+      var ctime = howsleepaudio.currentTime;
+      howsleepaudio.currentTime = ctime + 10;
+    });
+    
+    $("#howsleepaudiobbtn").on('tap', function() {
+      var ctime = howsleepaudio.currentTime;
+      howsleepaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howsleepaudiopsbtn").on('tap', function() {
+      howsleepaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navhowsleepbigbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

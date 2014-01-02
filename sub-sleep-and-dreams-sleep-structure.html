@@ -1,0 +1,179 @@
+<!-- i-C-a -->
+<div id="sleepstructure" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The structure of sleep</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+				  
+					<a id="gamaraysxrays" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Structure_Of_Sleep/Stages_Of_Sleep_Hi_Res.jpg', 'Your sleep is made up of multiple cycles of REM and non-REM sleep. During a nights sleep, your REM cycles get longer, whereas you non-REM cycles get shorter! ');">click here</a>			  
+				  
+					<!-- This section is for flipping images quize -->
+					<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+					  <div id="f1_card">
+						<div class="front face">
+						  <img id="dopple" src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Structure_Of_Sleep/Brain_Activity_During_Sleep.png">
+						</div>
+						<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Structure_Of_Sleep/Brain_Activity_During_Sleep_Reverse.png) no-repeat;">
+						  <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+						  <div id="trueans" style="position:absolute;left:90px;top:180px;width:70px;height:50px;"></div>
+						  <div id="falseans" style="position:absolute;left:200px;top:180px;width:70px;height:50px;"></div>							  
+						</div>
+					  </div><!--/f1+card-->
+					</div><!--/f1_container-->
+					<!-- Flip content ends here -->
+					
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Structure_Of_Sleep/Brain_Activity_During_Sleep.png" alt="" />
+                        </div>
+                        <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Structure_Of_Sleep/Stages_Of_Sleep.png" alt="" />
+                        </div>						
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentsleeps">
+                    <p>There are two kinds of sleep: Rapid Eye Movement (REM) sleep and Non- REM sleep.</p>
+					<p>During REM sleep, our brainwaves look very similar to being awake and this is your dreaming sleep.  When we are in this kind of sleep, all of our muscles relax except our eyes, which move rapidly from side to side.  Kind of like you're watching a fast tennis match with your eyes closed!</p>
+					<p>Non-REM sleep is made up of three stages.  The first stage, called N1, is a very light sleep and occurs when we are falling asleep.  The second stage, called N2, is a heavier sleep and makes up most of our sleep time.  The deepest sleep we have is called N3, also known as slow wave sleep because our brain waves slow right down.  About five or six times a night, you will go from N1, quickly move to N2, then on to N3 before getting some REM sleep. At the end of each cycle, you will wake up, roll over and go back to sleep.  These awakenings are usually so short that you won't remember them in the morning!</p>
+				</div>
+				<div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopsleepstructure"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="sleepstructureaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="sleepstructureaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="sleepstructureaudiofbtn" ></div></div>
+    <div id="actualaudio-sleepstructure" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+			$('#f1_container').css({"visibility":"hidden","z-index":0});
+           
+		    if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-sleepstructure').html('<audio controls preload id="sleepstructureaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/sleepstructure.mp3" type="audio/mpeg"></audio>');
+            }
+		  
+    
+            $("#sleepstructure").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleeps-and-dreams-how-do-we-sleep.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+		}
+		   
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+	   
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    $('#falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+	  });
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });	
+
+    $("#pol2").on('tap', function() {
+      $('#gamaraysxrays')[0].click();
+    });
+	
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-luminous-binaries.html", {transition: "slide"});
+//    });
+//    
+    //$("#pol1").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-augmentedsight-body-clocks.html", {transition: "slide"});
+    //});
+	
+	//$("#pol2").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-augmentedsight-social-jetlag.html", {transition: "slide"});
+    //});
+      
+
+/* ******************** */
+      $("#playstopsleepstructure").on('tap', function() {
+      if(!playing) {
+        sleepstructureaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        sleepstructureaudio.pause(); sleepstructureaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });	
+	 
+    $("#sleepstructureaudioplbtn").on('tap', function() {
+		if(!paused) {
+        sleepstructureaudio.pause();
+        paused = true;
+      } else {
+        sleepstructureaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#sleepstructureaudiofbtn").on('tap', function() {
+	  var ctime = sleepstructureaudio.currentTime;
+      sleepstructureaudio.currentTime = ctime + 10;
+    });
+    
+    $("#sleepstructureaudiobbtn").on('tap', function() {
+	  var ctime = sleepstructureaudio.currentTime;
+      sleepstructureaudio.currentTime = ctime - 10;
+    });
+    
+    $("#sleepstructureaudiopsbtn").on('tap', function() {
+	  sleepstructureaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/twocardLogic.js"></script>
+</div>

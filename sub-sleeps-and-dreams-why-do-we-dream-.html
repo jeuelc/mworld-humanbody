@@ -1,0 +1,113 @@
+<!-- i-C-a -->
+<div id="whydodreaming" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      <!--<div id="sgl" style="width:141px;height:112px;left:210px;top:362px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="snl" style="width:141px;height:112px;left:128px;top:485px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="nsl" style="width:176px;height:106px;left:388px;top:283px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="sleepsl" style="width:165px;height:117px;left:498px;top:467px;background:transparent;position:absolute;z-index:99999;"></div>
+		<div id="dsl" style="width:176px;height:106px;left:735px;top:217px;background:transparent;position:absolute;z-index:99999;"></div>
+        <div id="ehl" style="width:165px;height:110px;left:844px;top:415px;background:transparent;position:absolute;z-index:99999;"></div>
+      </div>-->
+      <div class="bptitleholder"><h1>Why do we dream?</h1></div>
+      <div class="storypageetg">
+			<p></p>
+	  </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+  <div class="micbtnholder"><div class="micbtnsleeps" id="playstopwhydodreaming"></div></div>
+  <div class="bsleeps"><div class="rwsleeps" id="whydodreamingaudiobbtn"></div></div>
+  <div class="plsleeps"><div class="plpssleeps" id="whydodreamingaudioplbtn"></div></div>
+  <div class="fsleeps"><div class="fwsleeps" id="whydodreamingaudiofbtn" ></div></div>
+  <div id="actualaudio-whydodreaming" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+        (function() {
+          playing = false;
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-whydodreaming').html('<audio controls preload id="whydodreamingaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/whydodreaminglife.mp3" type="audio/mpeg"></audio>');
+      } 
+      
+      $("#whydodreaming").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+  //  $("#sgl").on('tap', function() {$.mobile.changePage("sub-medieval- metropolis-whydodreaminglife-angkor-cooking.html", {transition:"slide"}); });
+  // $("#snl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-whydodreaminglife-angkor-marketers.html", {transition:"slide"}); });
+  //  $("#nsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-whydodreaminglife-angkor-village.html", {transition:"slide"}); });
+  //  $("#sleepsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-whydodreaminglife-angkor-fashion.html", {transition:"slide"}); });
+	// $("#dsl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-whydodreaminglife-angkor-houses.html", {transition:"slide"}); });
+	//  $("#ehl").on('tap', function() { $.mobile.changePage("sub-medieval- metropolis-whydodreaminglife-angkor-animals.html", {transition:"slide"}); });
+    
+   $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+   function goBack() {
+      $.mobile.changePage("sub-sleeps-and-dreams-In-your-dreams.html");
+    }
+    
+     function playsleeps() {
+		 bgsoundsleeps.play();
+	 }
+   
+	 function pausesleeps() {
+		 bgsoundsleeps.pause();
+	 }
+    /* ******************** */
+	
+	
+	
+	$("#playstopwhydodreaming").on('tap', function() {
+      if(!playing) {
+        whydodreamingaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        whydodreamingaudio.pause(); whydodreamingaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+	
+	
+    $("#whydodreamingaudioplbtn").on('tap', function() {
+      if(!paused) {
+        whydodreamingaudio.pause();
+        paused = true;
+      } else {
+        whydodreamingaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#whydodreamingaudiofbtn").on('tap', function() {
+      var ctime = whydodreamingaudio.currentTime;
+      whydodreamingaudio.currentTime = ctime + 10;
+    });
+    
+    $("#whydodreamingaudiobbtn").on('tap', function() {
+      var ctime = whydodreamingaudio.currentTime;
+      whydodreamingaudio.currentTime = ctime - 10;
+    });
+    
+    $("#whydodreamingaudiopsbtn").on('tap', function() {
+      whydodreamingaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

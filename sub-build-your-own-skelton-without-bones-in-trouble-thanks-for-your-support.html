@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-build-your-own-skelton-without-bones-in-trouble-thanks-for-your-support">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_build_your_own_skelton.js"></script>
+  <link rel="stylesheet" href="css/style_build_your_own_skelton.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnskelton"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnskelton"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnskelton"></div></div>
+  <div class="infobtnholder"><div class="infobtnskelton"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnskelton"></div></div>
+  <div class="menubtnholder"><div class="menubtnskelton"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Thanks for your support!</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support/Image_Card_1_Hi_Res.jpg', 'Bones of the spine are vital to support your body.');">click here</a>
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support/Image_Card_2_Hi_Res.jpg', 'Bones of the skeleton interact with muscles and joints to help us move.');">click here</a>
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support/Image_Card_3_Hi_Res.jpg', 'Believe it or not, bones also help you perform push-ups!');">click here</a>
+
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support/Image_Card_1.png" alt="" />
+          </div>
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support/Image_Card_2.png" alt="" />
+          </div>
+          <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support/Image_Card_3.png" alt="" />
+          </div>
+
+          
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="thanks-for-your-support-text">
+		<p>Bones are very important to support your body.  Your leg bones have been modeled to be strong enough to support the weight of your whole body!  Your vertebrae that form your spine support the weight of your head, allowing you to stand upright!</p>
+		<p>Click the image of the spine.  Can you see how the bones of the spine get progressively bigger as you look down from your skull?   This is because they have more weight to carry.  The pelvis supports your abdominal organs.</p>
+		<p>Which of your bones do you think can support more weight?  Your thigh bone or your arm bone?</p>
+      </div>
+       
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnskelton" id="playstopupclose"></div></div>
+    <div class="bskelton"><div class="rwskelton" id="upcloseaudiobbtn"></div></div>
+    <div class="plskelton"><div class="plpsskelton" id="upcloseaudioplbtn"></div></div>
+    <div class="fskelton"><div class="fwskelton" id="upcloseaudiofbtn"></div></div>
+    <div id="actualaudio-upclose" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-upclose').html('<audio id="upcloseaudio" controls preload onpause="playsskelton()" onplay="pauseskelton()"><source src="audio/Without_Bones_We_Are_In_Trouble/Thanks_For_Your_Support.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-build-your-own-skelton-without-bones-in-trouble-thanks-for-your-support").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+     $('.homelinkbh').on('tap', function() { bgsoundskelton.pause(); bgsoundskelton.currentTime = 0; mainaudiobg.play(); });
+    
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+ 
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });
+
+    $("#pol3").on('tap', function() {
+      $('#img3')[0].click();
+    });
+    function goBack() {
+      $.mobile.changePage("sub-build-your-own-skelton.html", {transition: "slide", reverse: true });
+    }
+    function playsskelton() {
+         bgsoundskelton.play();
+    }
+       
+    function pauseskelton() {
+         bgsoundskelton.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopupclose").on('tap', function() {
+      if(!playing) {
+        upcloseaudio.play();
+        $('.micbtnskelton').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        upcloseaudio.pause(); upcloseaudio.currentTime = 0;
+        $('.micbtnskelton').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#upcloseaudioplbtn").on('tap', function() {
+      if(!paused) {
+        upcloseaudio.pause();
+        paused = true;
+      } else {
+        upcloseaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#upcloseaudiofbtn").on('tap', function() {
+      var ctime = upcloseaudio.currentTime;
+      upcloseaudio.currentTime = ctime + 10;
+    });
+    
+    $("#upcloseaudiobbtn").on('tap', function() {
+      var ctime = upcloseaudio.currentTime;
+      upcloseaudio.currentTime = ctime - 10;
+    });
+    
+    $("#upcloseaudiopsbtn").on('tap', function() {
+      upcloseaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

@@ -1,0 +1,188 @@
+<!-- i-C-a -->
+<div id="messing" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Messing with your body clock</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+					<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+					  <div id="f1_card">
+						<div class="front face">
+						  <img id="dopple" src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/Messing_With_Your_Body_Clock/sleepy_hormone.png">
+						</div>
+						<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/Messing_With_Your_Body_Clock/sleepy_hormone_reverse.png) no-repeat;">
+						<div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+						  <div class="falseans" style="position:absolute;left: 51px;top: 166px;width: 124px;height: 33px;"></div>
+						  <div class="falseans" style="position:absolute;left:190px;top: 166px;width: 124px;height: 33px;"></div>
+						  <div class="falseans" style="position:absolute;left:51px;top:205px;width: 124px;height: 33px;"></div>
+						  <div id="trueans" style="position:absolute;left:190px;top:205px;width: 124px;height: 33px;"></div>
+						</div>
+					  </div><!--/f1+card-->
+					</div><!--/f1_container-->					  
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+							<img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/Messing_With_Your_Body_Clock/sleepy_hormone.png" alt="" />	                      </div>
+                        <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/Messing_With_Your_Body_Clock/do_you_have_social_jetlag.png" alt="" />
+                        </div>
+                        <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/Messing_With_Your_Body_Clock/social_jetlag.png" alt="" />
+                        </div>
+                        <div id="pol4"class="pPiece" style="left:80px;top:270px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Broken_Sleep/Messing_With_Your_Body_Clock/body_clock_out_of_sync.png" alt="" />
+                        </div>						
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentsleeps">
+                    <p>Your body clock is very sensitive and can easily be bullied or pushed around.  When that happens, we end up sleeping at times that don't fit with our family, school or work.</p>
+					<p>So what is the body clock's biggest bully?  The gang of television, computer screens and smart phones!  Your body clock gets its cues from light and dark, so too much light at night can cause your body clock to shift.  This happens a lot in teenagers and can make them very tired because they can't sleep until late but have to get up early for school.</p>
+					<p>You can also mess with your body clock by going to bed at different times every night.  When you do this, you feel what is called 'social jetlag' which is when you have the symptoms of jetlag; sleepiness, poor mood, and poor appetite, but haven't had the fun of flying anywhere!</p>
+				</div>
+                <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopmessing"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="messingaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="messingaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="messingaudiofbtn" ></div></div>
+    <div id="actualaudio-messing" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 4);
+            $('div#pol2').css("z-index", 3);
+            $('div#pol3').css("z-index", 2);
+            $('div#pol4').css("z-index", 1);			
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+           $('div#pol4 > img').css("-webkit-transform", "rotate(3deg)");
+             if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-messing').html('<audio controls preload id="messingaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/messing.mp3" type="audio/mpeg"></audio>');
+             } 
+             
+    
+            $("#messing").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleep-and-dreams-broken-sleep.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+	    }
+       
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+
+	  $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+	  });
+		
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
+//    });
+//    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	//2nd quiz
+	$("#pol2").on('tap', function() {
+      $.mobile.changePage("#", {transition: "slide"});
+    });
+	//3rd link
+    $("#pol3").on('tap', function() {
+	  $.mobile.changePage("sub-sleep-and-dreams-broken-messing-body-clocks.html", {transition: "slide"});
+    });   
+	//4th page link
+    $("#pol4").on('tap', function() {
+	  $.mobile.changePage("sub-sleep-and-dreams-broken-messing-social-jetlag.html", {transition: "slide"});
+    });   	
+
+	
+/* write and wrong ans */
+    $('.falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });		
+	
+/* ******************** */
+
+	$("#playstopmessing").on('tap', function() {
+      if(!playing) {
+        messingaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        messingaudio.pause(); messingaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+    $("#messingaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        messingaudio.pause();
+        paused = true;
+      } else {
+        messingaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#messingaudiofbtn").on('tap', function() {
+	  var ctime = messingaudio.currentTime;
+      messingaudio.currentTime = ctime + 10;
+    });
+    
+    $("#messingaudiobbtn").on('tap', function() {
+	  var ctime = messingaudio.currentTime;
+      messingaudio.currentTime = ctime - 10;
+    });
+    
+    $("#messingaudiopsbtn").on('tap', function() {
+	  messingaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/fourcardLogic.js"></script>  <!-- for card dragging effects -->
+</div>

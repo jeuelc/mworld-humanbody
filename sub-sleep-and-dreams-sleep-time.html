@@ -1,0 +1,133 @@
+<!-- i-C-a -->
+<div id="sleeptime" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Sleep time</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+					 <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+							<img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Early_Birds_And_Night_Owls.png" alt="" />
+                        </div>	
+						  <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+							 <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/How_Do_We_Sleep/Sleep_Time/Sleep_Across_Cultures.png" alt="" />						     </div>						
+                     </div><!--/zoomwrapper-->
+                  </div>
+                <div class="bpcontentsleeps">
+                    <p>Not everyone gets the amount of sleep they need in the same way.  Depending on where you live in the world, you will sleep different amounts at different times of the day or night.</p>
+					<p>Also, some people like to go to bed early and wake up early.  We call these people 'early birds'.</p>
+					<p>Other people go to bed late and get up late.  We call these people 'night owls'. </p>
+				</div>
+                
+                <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstopsleeptime"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="sleeptimeaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="sleeptimeaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="sleeptimeaudiofbtn" ></div></div>
+    <div id="actualaudio-sleeptime" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+           
+           
+            if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-sleeptime').html('<audio controls preload id="sleeptimeaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/sleeptime.mp3" type="audio/mpeg"></audio>');
+            }
+             
+    
+            $("#notsleeping").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleeps-and-dreams-how-do-we-sleep.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+	    }
+       
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+
+  
+    $("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-sleep-and-dreams-sleep-time-early-birds.html", {transition: "slide"});
+    });
+	
+	$("#pol2").on('tap', function() {
+      $.mobile.changePage("sub-sleep-and-dreams-sleep-cultures.html", {transition: "slide"});
+    });
+      
+
+/* ******************** */
+
+	$("#playstopsleeptime").on('tap', function() {
+      if(!playing) {
+        sleeptimeaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        sleeptimeaudio.pause(); sleeptimeaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+	
+    $("#sleeptimeaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        sleeptimeaudio.pause();
+        paused = true;
+      } else {
+        sleeptimeaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#sleeptimeaudiofbtn").on('tap', function() {
+	  var ctime = sleeptimeaudio.currentTime;
+      sleeptimeaudio.currentTime = ctime + 10;
+    });
+    
+    $("#sleeptimeaudiobbtn").on('tap', function() {
+	  var ctime = sleeptimeaudio.currentTime;
+      sleeptimeaudio.currentTime = ctime - 10;
+    });
+    
+    $("#sleeptimeaudiopsbtn").on('tap', function() {
+	  sleeptimeaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div>

@@ -1,0 +1,227 @@
+<!-- i-C-a -->
+<div id="rememberingdreams" data-role="page">
+  <script src="js/slidebar_sleep_and_dreams.js"></script>
+  <link rel="stylesheet" href="css/style_sleep_and_dreams.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnsleeps"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnsleeps"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnsleeps"></div></div>
+  <div class="infobtnholder"><div class="infobtnsleeps"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnsleeps"></div></div>
+  <div class="menubtnholder"><div class="menubtnsleeps"></div></div>
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+   <!-- <div id="bonus-ags" class="talkbubble" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>--><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Remembering your dreams</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-volcano"></div>
+                  <div class="sidebarleft-half">
+					<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+										  <div id="f1_card">
+											<div class="front face">
+											  <img id="dopple" src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/Remembering_Your_Dreams/Dreaming_Each_Night.png">
+											</div>
+											<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/Remembering_Your_Dreams/Dreaming_Each_Night_Reverse.png) no-repeat;">
+											  <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+					<div class="falseans1" style="position: absolute;left: 52px;top: 168px;width: 120px;height: 31px;"></div>
+					<div class="falseans1" style="position: absolute;left: 189px;top: 167px;width: 119px;height: 32px;"></div>
+					<div class="falseans1" style="position: absolute;left: 52px;top: 202px;width: 120px;height: 31px;"></div>
+										<div id="trueans1" style="position: absolute;left: 189px;top: 202px;width: 119px;height: 32px;"></div>											  
+											</div>
+										  </div><!--/f1+card-->
+										</div><!--/f1_container-->	
+										<div id="f2_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+										  <div id="f2_card">
+											<div class="front face">
+											  <img id="dopple" src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/Remembering_Your_Dreams/Snoring_And_Dreaming.png">
+											</div>
+											<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/Remembering_Your_Dreams/Snoring_And_Dreaming_Reverse.png) no-repeat;">
+											  <div class="returncard2" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+					<div id="trueans2" style="position:absolute;left:90px;top:180px;width:70px;height:50px;"></div>
+												  <div id="falseans2" style="position:absolute;left:200px;top:180px;width:70px;height:50px;"></div>								  
+											</div>
+										  </div><!--/f1+card-->
+										</div><!--/f1_container-->						  
+                     <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/Remembering_Your_Dreams/Dreaming_Each_Night.png" alt="" />
+                        </div>
+						<div id="pol2" class="pPiece" style="left:70px;top:250px;">
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/Remembering_Your_Dreams/Snoring_And_Dreaming.png" alt="" />
+                        </div>
+                     </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentsleeps">
+                    <p>Why is it that sometimes you remember your dreams and sometimes you dont?  It all has to do with when you wake up.</p>
+					<p>Most of your REM sleep occurs early in the morning just before you wake up.  If you wake up when you are in REM sleep, you will remember what you have just been dreaming.   But not for long!  It is only stored in your short-term memory.  And when we say a very short time, we mean a very short time only ten seconds or less!  So if you have a cool dream that seems like a big adventure, it might have only been a five second dream!</p>
+					<p>If you want to remember your dreams for longer, you need to talk about them or write them down.  Then they will be stored in your longer-term memory.</p>
+				</div>
+                <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     
+    <div class="micbtnholder"><div class="micbtnsleeps" id="playstoprememberingdreams"></div></div>
+    <div class="bsleeps"><div class="rwsleeps" id="rememberingdreamsaudiobbtn"></div></div>
+    <div class="plsleeps"><div class="plpssleeps" id="rememberingdreamsaudioplbtn"></div></div>
+    <div class="fsleeps"><div class="fwsleeps" id="rememberingdreamsaudiofbtn" ></div></div>
+    <div id="actualaudio-rememberingdreams" style="visibility:hidden;"></div>
+    
+    <script>
+        sound = new Audio();
+        soundpop = new Audio();
+        var playing;
+        (function() {
+          playing = false;
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+           
+           
+             if(sound.canPlayType('audio/mpeg')) {
+                 $('#actualaudio-rememberingdreams').html('<audio controls preload id="rememberingdreamsaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/rememberingdreams.mp3" type="audio/mpeg"></audio>');
+             } 
+             
+    
+            $("#rememberingdreams").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+        })();
+        $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
+    
+        function goBack() {
+            $.mobile.changePage("sub-sleeps-and-dreams-In-your-dreams.html");
+        }
+        
+        function playsleeps() {
+			 bgsoundsleeps.play();
+		}
+		   
+		function pausesleeps() {
+			 bgsoundsleeps.pause();
+		}
+ 
+
+
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+
+    $(".returncard2").on('tap', function() {
+      $('#f2_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f2_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f2_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f2_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":3});
+        $('#f2_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });	
+
+    $('.falseans1').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans1').on('tap', function() {
+      alert("Correct answer");
+    });
+
+  $('#falseans2').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans2').on('tap', function() {
+      alert("Correct answer");
+    });	
+
+	
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
+//    });
+//    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+
+    $("#pol2").on('tap', function() {
+      $('#f2_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f2_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f2_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f2_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f2_card').css({"transform": "rotateY(180deg)"});
+    });	
+
+
+
+
+
+
+ 
+   // $("#pol3").on('tap', function() {
+//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
+//    });
+//    
+    //$("#pol1").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-rememberingdreams-body-clocks.html", {transition: "slide"});
+    //});
+	
+	//$("#pol2").on('tap', function() {
+    //  $.mobile.changePage("sub-sleep-and-dreams-broken-rememberingdreams-social-jetlag.html", {transition: "slide"});
+    //});
+      
+
+/* ******************** */
+
+	$("#playstoprememberingdreams").on('tap', function() {
+      if(!playing) {
+        rememberingdreamsaudio.play();
+        $('.micbtnsleeps').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        rememberingdreamsaudio.pause(); rememberingdreamsaudio.currentTime = 0;
+        $('.micbtnsleeps').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+	
+    $("#rememberingdreamsaudioplbtn").on('tap', function() {
+	 if(!paused) {
+        rememberingdreamsaudio.pause();
+        paused = true;
+      } else {
+        rememberingdreamsaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#rememberingdreamsaudiofbtn").on('tap', function() {
+	  var ctime = rememberingdreamsaudio.currentTime;
+      rememberingdreamsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#rememberingdreamsaudiobbtn").on('tap', function() {
+	  var ctime = rememberingdreamsaudio.currentTime;
+      rememberingdreamsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#rememberingdreamsaudiopsbtn").on('tap', function() {
+	  rememberingdreamsaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+                
+  </script><script src="js/twocardLogic.js"></script>
+</div>

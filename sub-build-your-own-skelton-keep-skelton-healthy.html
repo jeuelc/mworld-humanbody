@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-build-your-own-skelton-keep-skelton-healthy">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_build_your_own_skelton.js"></script>
+  <link rel="stylesheet" href="css/style_build_your_own_skelton.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnskelton"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnskelton"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnskelton"></div></div>
+  <div class="infobtnholder"><div class="infobtnskelton"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnskelton"></div></div>
+  <div class="menubtnholder"><div class="menubtnskelton"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Keep your skeleton healthy</h1></div>
+    <div data-role="content" class="kidzcontent">
+      <div class="navskelton-content">
+        <p>Because your bones are alive, and are growing and repairing, they have special requirements to help them do this!</p>
+		<p>There are two things they need: proper exercise to help them grow stronger and the right foods and drinks to give them the fuel to do their job!</p>
+		<p>Your peak bone mass (the point in life at which your bones are most dense) is achieved in your early twenties.  However, the strength of your bones when you're an adult is determined by whether you do the RIGHT EXERCISE and eat the RIGHT FOODS in your TEENAGE YEARS.</p>
+		<p>If you don't do this correctly when you are a teenager, you will have weak bones as an adult, and then it will be too late to do anything about it.</p>
+		<p>So if you are a teenager now or soon will be, you have a once-in-a-lifetime opportunity to form YOUR BODY'S BEST SKELETON!</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-build-your-own-skelton-keep-skelton-healthy-bone-fitness.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Keep_Your_Skeleton_Healthy/Bonefitness.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-build-your-own-skelton-keep-skelton-healthy-fueling-your-skelton.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Keep_Your_Skeleton_Healthy/Fuelling_Your_Skelton.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-build-your-own-skelton-keep-skelton-healthy-broken-bones.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Keep_Your_Skeleton_Healthy/Broken_Bones.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-build-your-own-skelton-keep-skelton-healthy-old-bones.html" data-transition="slide"><img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/Keep_Your_Skeleton_Healthy/Old_Bones.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnskelton" id="playstopkeepskeltonhealthy"></div></div>
+    <div class="bskelton"><div class="rwskelton" id="keepskeltonhealthyaudiobbtn"></div></div>
+    <div class="plskelton"><div class="plpsskelton" id="keepskeltonhealthyaudioplbtn"></div></div>
+    <div class="fskelton"><div class="fwskelton" id="keepskeltonhealthyaudiofbtn"></div></div>
+    <div id="actualaudio-keepskeltonhealthy" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-keepskeltonhealthy').html('<audio id="keepskeltonhealthyaudio" controls preload onpause="playsskelton()" onplay="pauseskelton()"><source src="audio/Build_Your_Own_Skelton/Keep_Skelton_Healthy.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub_build_your_own_skelton_keep_skelton_healthy").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundskelton.pause(); bgsoundskelton.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-build-your-own-skelton.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsskelton() {
+         bgsoundskelton.play();
+    }
+       
+    function pauseskelton() {
+         bgsoundskelton.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopkeepskeltonhealthy").on('tap', function() {
+      if(!playing) {
+        keepskeltonhealthyaudio.play();
+        $('.micbtnskelton').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        keepskeltonhealthyaudio.pause(); keepskeltonhealthyaudio.currentTime = 0;
+        $('.micbtnskelton').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#keepskeltonhealthyaudioplbtn").on('tap', function() {
+      if(!paused) {
+        keepskeltonhealthyaudio.pause();
+        paused = true;
+      } else {
+        keepskeltonhealthyaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#keepskeltonhealthyaudiofbtn").on('tap', function() {
+      var ctime = keepskeltonhealthyaudio.currentTime;
+      keepskeltonhealthyaudio.currentTime = ctime + 10;
+    });
+    
+    $("#keepskeltonhealthyaudiobbtn").on('tap', function() {
+      var ctime = keepskeltonhealthyaudio.currentTime;
+      keepskeltonhealthyaudio.currentTime = ctime - 10;
+    });
+    
+    $("#keepskeltonhealthyaudiopsbtn").on('tap', function() {
+      keepskeltonhealthyaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

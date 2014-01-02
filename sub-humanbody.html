@@ -1,0 +1,45 @@
+<!-- i-C-a -->
+<div data-role="page" id="humanbody2">
+  <div data-role="content" style="overflow:hidden !important;">
+    
+    <div id="titleb-holder"><h1 style="margin-top:184px;">Human Body</h1></div>
+    
+    <div style="width:90%;margin:auto;">
+      <div class="aclink"><a href="#" data-transition="slide" id="how_did_we_get_here-btn"><img src="css/images/9-12/Human_Body/hdwghbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide" id="germs-btn"><img src="css/images/9-12/Human_Body/germsbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide" id="seeing_and_hearing-btn"><img src="css/images/9-12/Human_Body/seeandhearbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide" id="crime_scene-btn"><img src="css/images/9-12/Human_Body/crimescenebtn.png"></a></div><br>
+      <div class="aclink"><a href="sub-sleep-and-dreams.html" id="the_mind-btn" data-transition="slide"><img src="css/images/9-12/Human_Body/mindbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide" id="heart_and_lungs-btn"><img src="css/images/9-12/Human_Body/heartlungsbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide" id="being_healthy-btn"><img src="css/images/9-12/Human_Body/healthybtn.png"></a></div>
+      <div class="aclink"><a href="sub-build-your-own-skelton.html" data-transition="slide" id="how_to_make_a_skeleton-btn"><img src="css/images/9-12/Human_Body/skeletonbtn.png"></a></div>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/bottomhome.png"></a></div>
+  </div> <!-- end content -->  
+    <script>
+	$(function() {
+		$("#humanbody2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+	});
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      humanbodysoundbg.pause(); humanbodysoundbg.currentTime = 0;
+      mainaudiobg.play();
+    }
+    
+    $('.homelinkbh').on('tap', function() { 
+      mainaudiobg.play(); humanbodysoundbg.pause(); humanbodysoundbg.currentTime = 0;
+    });
+	
+	$(document).ready(function(e) {
+		  $('.aclink>a').on('tap', function(event) {
+			var subjectId = $(this).attr("id");
+			if(subjectId == "the_mind-btn") {
+				bgsoundsleeps.play();
+				humanbodysoundbg.pause();
+				humanbodysoundbg.currentTime = 0;
+			} 
+		});
+	});	
+			</script>
+</div>

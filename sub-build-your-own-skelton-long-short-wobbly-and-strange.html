@@ -1,0 +1,159 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-build-your-own-skelton-what-are-bones-long-short-wobbly-and-strange">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_build_your_own_skelton.js"></script>
+  <link rel="stylesheet" href="css/style_build_your_own_skelton.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnskelton"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnskelton"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnskelton"></div></div>
+  <div class="infobtnholder"><div class="infobtnskelton"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnskelton"></div></div>
+  <div class="menubtnholder"><div class="menubtnskelton"></div></div>
+  
+  <div class="bptitleholder"><h1>Long, short, wobbly and strange</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_1_Hi_Res.jpg', 'Long bones of the upper limb.  (Courtesy Monash University)');">click here</a>
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_2_Hi_Res.jpg', 'Short bones of the hand.  (Courtesy Monash University)');">click here</a>
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_3_Hi_Res.jpg', 'Scapula is a flat bone, part of the shoulder girdle.  (Courtesy Monash University)');">click here</a>
+        <a id="img4" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_4_Hi_Res.jpg', 'Visualize all the intricate bones of the human skull!  (Courtesy Monash University)');">click here</a>		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_1.png" alt="" />
+          </div>
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_2.png" alt="" />
+          </div>
+          <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_3.png" alt="" />
+          </div>
+          <div id="pol4" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/Human_Body/Build_Your_Own_Skelton/What_Are_Bones/Long_Short_Wobbly_Strange/Image_Card_4.png" alt="" />
+          </div>
+          
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentskelton">
+		<p>Bones come in all different shapes and sizes, and are designed to fit a particular need.</p>
+		<p>Long bones form the limbs and are essential for mobility.  One example is the all-powerful leg bone, the femur!  Short bones are more cube-shaped, and you need them for balance and stability.  They form the base of your hands and feet; you couldn't do push ups or play sport without them.</p>
+		<p>Flat bones are just that, flat.  They typically protect your internal organs like your lungs, heart and brain.  Sesamoid bones are usually short or irregular bones, embedded in a tendon.  Can you think of any bones you can wobble?  They will be your sesamoid bones!</p>
+		<p>And then there are the irregular bones that don't fit into any category.  They are really unique and some of them shape your face! Can you think of any others?</p>
+      </div>       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+  <!-- <div class="audiopanel"> -->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnskelton" id="playstoplongshortwobblyandstrange"></div></div>
+    <div class="bskelton"><div class="rwskelton" id="longshortwobblyandstrangeaudiobbtn"></div></div>
+    <div class="plskelton"><div class="plpsskelton" id="longshortwobblyandstrangeaudioplbtn"></div></div>
+    <div class="fskelton"><div class="fwskelton" id="longshortwobblyandstrangeaudiofbtn"></div></div>
+    <div id="actualaudio-longshortwobblyandstrange" style="visibility:hidden;"></div>
+  <!-- </div> -->    
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      $('div#pol1').css("z-index", 3);
+      $('div#pol2').css("z-index", 2);
+      $('div#pol3').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");	
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");	
+      $('div#pol4 > img').css("-webkit-transform", "rotate(-3deg)");
+      
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-longshortwobblyandstrange').html('<audio id="longshortwobblyandstrangeaudio" controls preload onpause="pauseskelton()" onplay="playsskelton()"><source src="audio/Build_Your_Own_Skelton/Long_Short_Wobbly_And_Strange.mp3" type="audio/mpeg"></audio>');
+      } 
+
+
+      $("#sub-build-your-own-skelton-what-are-bones-long-short-wobbly-and-strange").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundskelton.pause(); bgsoundskelton.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-build-your-own-skelton.html", {transition: "slide", reverse: true });
+    }
+    
+
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+ 
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });
+
+    $("#pol3").on('tap', function() {
+      $('#img3')[0].click();
+    });
+
+    $("#pol4").on('tap', function() {
+      $('#img4')[0].click();
+    });
+	
+    function playsskelton() {
+         bgsoundskelton.play();
+    }
+       
+    function pauseskelton() {
+         bgsoundskelton.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstoplongshortwobblyandstrange").on('tap', function() {
+      if(!playing) {
+        longshortwobblyandstrangeaudio.play();
+        $('.micbtnskelton').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        longshortwobblyandstrangeaudio.pause(); longshortwobblyandstrangeaudio.currentTime = 0;
+        $('.micbtnskelton').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#longshortwobblyandstrangeaudioplbtn").on('tap', function() {
+      if(!paused) {
+        longshortwobblyandstrangeaudio.pause();
+        paused = true;
+      } else {
+        longshortwobblyandstrangeaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#longshortwobblyandstrangeaudiofbtn").on('tap', function() {
+      var ctime = longshortwobblyandstrangeaudio.currentTime;
+      longshortwobblyandstrangeaudio.currentTime = ctime + 10;
+    });
+    
+    $("#longshortwobblyandstrangeaudiobbtn").on('tap', function() {
+      var ctime = longshortwobblyandstrangeaudio.currentTime;
+      longshortwobblyandstrangeaudio.currentTime = ctime - 10;
+    });
+    
+    $("#longshortwobblyandstrangeaudiopsbtn").on('tap', function() {
+      longshortwobblyandstrangeaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+  <script src="js/fourcardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->
