@@ -32,6 +32,34 @@
   overflow:hidden !important;
   width:1024px !important;
 }
+
+#sglglow {
+  width:272px;
+  height:108px;
+  margin-top:-20px;
+  margin-left:-37px;
+  background:url('images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/sglglow.png') no-repeat;
+  display:none;
+}
+
+#nslglow {
+  width:272px;
+  height:108px;
+  margin-top:-17px;
+  margin-left:-32px;
+  background:url('images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/nslglow.png') no-repeat;
+  display:none;
+}
+
+#gslglow {
+  width:272px;
+  height:108px;
+  margin-top:-17px;
+  margin-left:-16px;
+  background:url('images/9-12/Human_Body/Sleeps_And_Dreams/In_Your_Dreams/gslglow.png') no-repeat;
+  display:none;
+}
+
 .in_your_dreams{
 	color: #FFFFFF;
 	font-family: "comic sans ms";

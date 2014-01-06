@@ -24,8 +24,8 @@
       </div>-->
       <div class="bptitleholder"><h1>When you don't get enough sleep...</h1></div>
       <div class="storypageetg_messing_social_jetlag">
-		<p></p>
-	  </div>
+        <p style="color:#FFFFFF;">no text in contentjam</p>
+      </div>
       <div class="botlogoholder"><a href="home.html" class="homelinksleeps"><img src="css/images/9-12/Human_Body/bottomhomehb.png"></a></div>
     </div><!--end of content-->
   </div><!--/spacechar-->
@@ -42,10 +42,10 @@
           playing = false;
            /* $('#node-body-minoans').html(data[0].Body);*/
             if(sound.canPlayType('audio/mpeg')) {
-                 $('#actualaudio-enoughtsleep').html('<audio controls preload id="enoughtsleepaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/enoughtsleep.mp3" type="audio/mpeg"></audio>');
+                 $('#actualaudio-enoughtsleep').html('<audio controls preload id="enoughtsleepaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/enoughsleep.mp3" type="audio/mpeg"></audio>');
             } 
       
-      $("#enoughtbh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#enoughtsleep").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     })();
     
   //  $("#sgl").on('tap', function() {$.mobile.changePage("sub-medieval- metropolis-sleepneededlife-angkor-cooking.html", {transition:"slide"}); });
@@ -57,7 +57,7 @@
     
     $('.homelinksleeps').on('tap', function() { mainaudiobg.play(); bgsoundsleeps.pause(); bgsoundsleeps.currentTime = 0;});
 	function goBack() {
-            $.mobile.changePage("sub-sleeps-and-dreams-during-sleep.html");
+            $.mobile.changePage("sub-sleep-and-dreams-during-sleep.html");
         }
     
     function playsleeps() {

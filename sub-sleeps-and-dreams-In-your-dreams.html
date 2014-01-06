@@ -13,9 +13,15 @@
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
-        <div id="sgl" style="height: 70px;left: 195px;position: absolute; top: 148px; width: 197px;background:transparent;position:absolute;"></div>
-        <div id="nsl" style=" background: none repeat scroll 0 0 transparent; height: 75px;position: absolute; right: 393px; top: 60px; width: 226px;"></div>
-	    <div id="gsl" style=" background: none repeat scroll 0 0 transparent; height: 69px; position: absolute; right: 182px; top: 154px; width: 239px;"></div>
+        <div id="sgl" style="height: 70px;left: 195px;position: absolute; top: 148px; width: 197px;background:transparent;position:absolute;">
+          <div id="sglglow"></div>
+        </div>
+        <div id="nsl" style=" background: none repeat scroll 0 0 transparent; height: 75px;position: absolute; right: 393px; top: 60px; width: 226px;">
+          <div id="nslglow"></div>
+        </div>
+        <div id="gsl" style=" background: none repeat scroll 0 0 transparent; height: 69px; position: absolute; right: 182px; top: 154px; width: 239px;">
+          <div id="gslglow"></div>
+        </div>
 	    
       </div>
       <div class="in_your_dreams">
@@ -41,8 +47,15 @@
         $('#actualaudio-inyourdreams').html('<audio controls preload id="inyourdreamsaudio" onpause="playsleeps()" onplay="pausesleeps()"><source src="audio/Sleeps_And_Dreams/inyourdreamslife.mp3" type="audio/mpeg"></audio>');
       } 
       
+      setInterval(function() {
+          $("#sglglow").fadeIn(1000, function() {$("#sglglow").fadeOut(1000); } );
+          $("#nslglow").fadeIn(1000, function() {$("#nslglow").fadeOut(1000); } );
+          $("#gslglow").fadeIn(1000, function() {$("#gslglow").fadeOut(1000); } );
+        },2000);
+      
       $("#inyourdreams").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     })();
+    
     
     $("#sgl").on('tap', function() { $.mobile.changePage("sub-sleeps-and-dreams-why-do-we-dream.html", {transition:"slide"}); });
     $("#nsl").on('tap', function() { $.mobile.changePage("sub-sleep-and-dreams-remembering-dreams.html", {transition:"slide"}); });

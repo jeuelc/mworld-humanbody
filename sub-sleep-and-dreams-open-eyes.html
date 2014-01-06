@@ -20,7 +20,7 @@
                   <div class="sidebarleft-half">
                      <div id="zoomwrapper">
                         <div id="pol1" class="pPiece" style="left:100px;top:270px;">
-                           <img src="css/images/5-8/volcanoes/placeholder-background.jpg" alt="" />
+                           <img src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Why_Do_We_Sleep/Cant_Keep_Your_Eyes_Open/cant_keep_eyes_open.png" alt="" />
                         </div>
                      </div><!--/zoomwrapper-->
                 </div>
@@ -39,6 +39,14 @@
     <div class="plsleeps"><div class="plpssleeps" id="openeyesaudioplbtn"></div></div>
     <div class="fsleeps"><div class="fwsleeps" id="openeyesaudiofbtn" ></div></div>
     <div id="actualaudio-openeyes" style="visibility:hidden;"></div>
+    
+    <div id="cantkeepeyesopenholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+     <div class="cantkeepeyesopen_container">
+       <video id="cantkeepeyesopen" width="1024" height="748" preload>
+         <source src="css/images/9-12/Human_Body/Sleeps_And_Dreams/Why_Do_We_Sleep/Cant_Keep_Your_Eyes_Open/cant_keep_eyes_open_bg.mp4" type="video/mp4">
+       </video>
+     </div>
+    </div> 
     
     <script>
         sound = new Audio();
@@ -71,20 +79,22 @@
 		function pausesleeps() {
 			 bgsoundsleeps.pause();
 		}
-       
-   // $("#pol3").on('tap', function() {
-//      $.mobile.changePage("sub-space-sleeps-binaries.html", {transition: "slide"});
-//    });
-//    
-    //$("#pol1").on('tap', function() {
-    //  $.mobile.changePage("sub-sleep-and-dreams-broken-openeyes-body-clocks.html", {transition: "slide"});
-    //});
-	
-	//$("#pol2").on('tap', function() {
-    //  $.mobile.changePage("sub-sleep-and-dreams-broken-openeyes-social-jetlag.html", {transition: "slide"});
-    //});
-      
-
+         
+    $("#pol1").on('tap', function() {
+      $("#cantkeepeyesopenholder").css({"visibility":"visible", "z-index":10});
+         $("#cantkeepeyesopen").css({"z-index":9});
+         bgsoundsleeps.pause();
+         cantkeepeyesopen.play();
+    });
+    
+    $("#cantkeepeyesopen").on('tap', function() {
+      $("#cantkeepeyesopenholder").css({"visibility":"hidden", "z-index":-1});
+      $("#cantkeepeyesopen").css({"z-index":-1});
+      bgsoundsleeps.play();
+      cantkeepeyesopen.pause();
+      cantkeepeyesopen.currentTime = 0;
+    });
+    
 /* ******************** */
 	$("#playstopopeneyes").on('tap', function() {
       if(!playing) {
